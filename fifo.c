@@ -18,22 +18,21 @@ struct FIFO{
     int tail; // posição do próximo elemento a ser inserido
 };
 
-<<<<<<< HEAD
-int isFifoFull(*FIFO fifo){
-    return ((fifo>tail - 1 ) ==  MAX_SIZE);
+int isFifoFull(struct FIFO *fifo){
+    return ((fifo->tail - 1 ) ==  MAX_SIZE);
 }
 
-int isFifoEmpty(){
+int isFifoEmpty(struct FIFO *fifo){
     return (fifo->tail == fifo->head);
 }
 
 
-void MyFIFOInsert(*FIFO fifo,int value){
+int MyFIFOInsert(struct FIFO *fifo,int value){
     if(isFifoFull(fifo) == 1){
         return -1;
     }
-    fifo.buffer[tail] = value;
-    fifo.tail +=  1;
+    fifo->buffer[fifo->tail] = value;
+    fifo->tail +=  1;
     return 0;
 }
 
@@ -45,6 +44,10 @@ void MyFIFOInit(struct FIFO *fifo){
 		fifo->tail=0;
 }
 
+// retorna o elemento mais antigo 
+int MyFIFOPeep(struct FIFO *fifo){
+		return fifo->buffer[0];
+}
 
 int main(){
 /*
