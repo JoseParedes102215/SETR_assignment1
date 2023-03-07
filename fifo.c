@@ -32,17 +32,20 @@ int isFifoFull(struct FIFO *fifo){
      
 }
 
+
 int isFifoEmpty(struct FIFO *fifo){
     return (fifo->tail == fifo->head);
 }
 
 
-int MyFIFOInsert(struct FIFO *fifo, int value){
+
+int MyFIFOInsert(struct FIFO *fifo,int value){
     if(isFifoFull(fifo) == 1){
         return -1;
     }
     fifo->buffer[fifo->tail] = value;
     fifo->tail =   fifo->tail + 1;
+
     return 0;
 }
 
@@ -52,6 +55,12 @@ void PrintFifo(struct FIFO *fifo){
         printf("%d\n",fifo->buffer[i]);
     }
     
+}
+
+
+// retorna o elemento mais antigo 
+int MyFIFOPeep(struct FIFO *fifo){
+		return fifo->buffer[0];
 }
 
 int main(){
