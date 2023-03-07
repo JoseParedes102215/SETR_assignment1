@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_SIZE 10
+#define MAX_SIZE 5 // antes 10
 
 // Estrutura do FIFO
 /*
@@ -18,11 +18,39 @@ struct FIFO{
     int tail; // posição do próximo elemento a ser inserido
 };
 
+int isFifoFull(*FIFO fifo){
+    return ((fifo>tail - 1 ) ==  MAX_SIZE);
+}
+
+int isFifoEmpty(){
+    return (fifo->tail == fifo->head);
+}
+
+
+void MyFIFOInsert(*FIFO fifo,int value){
+    if(isFifoFull(fifo) == 1){
+        return -1;
+    }
+    fifo.buffer[tail] = value;
+    fifo.tail +=  1;
+    return 0;
+}
+
+
 
 int main(){
+/*
+struct FIFO fifo1;
+    for (int i = 0; i < MAX_SIZE + 1 ;i++)
+    {
+        if(MyFIFOInsert(fifo1,2*i) == 0);
 
-    struct FIFO fifo1;
+    }
+    
     fifo1.buffer[0] = 11;
     printf("O primeiro elemento e %d",fifo1.buffer[0]);
     return 0;
+
+*/
+    
 }
