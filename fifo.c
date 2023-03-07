@@ -18,11 +18,19 @@ struct FIFO{
     int tail; // posição do próximo elemento a ser inserido
 };
 
+// inicializa o FIFO
+void MyFIFOInit(struct FIFO *fifo){
+		fifo->head=0;
+		fifo->tail=0;
+}
 
 int main(){
 
     struct FIFO fifo1;
+		MyFIFOInit(&fifo1);
+
     fifo1.buffer[0] = 11;
     printf("O primeiro elemento e %d",fifo1.buffer[0]);
+    printf("\no head é %d",fifo1.head);
     return 0;
 }
