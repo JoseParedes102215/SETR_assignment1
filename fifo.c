@@ -28,7 +28,7 @@ void MyFIFOInit(struct FIFO *fifo){
 
 
 int isFifoFull(struct FIFO *fifo){
-    return ((fifo->tail) ==  MAX_SIZE);
+     return ((fifo->tail + 1) % MAX_SIZE == fifo->head);
      
 }
 
@@ -44,23 +44,36 @@ int MyFIFOInsert(struct FIFO *fifo,int value){
         return -1;
     }
     fifo->buffer[fifo->tail] = value;
-    fifo->tail =   fifo->tail + 1;
+     fifo->tail = (fifo->tail + 1) % MAX_SIZE;
+
+    return 0;
+}
+
+int MyFIFORemove(struct FIFO *fifo){
+    if(isFifoEmpty(fifo) == 1){
+        return -1;
+    }
+    fifo->buffer[fifo->head] = 0;
+    fifo->head = (fifo->head + 1) % MAX_SIZE;
 
     return 0;
 }
 
 void PrintFifo(struct FIFO *fifo){
-    for (int i = 0; i < MAX_SIZE; i++)
+    for (int i = fifo->head; i < fifo->tail; i++)
     {
         printf("%d\n",fifo->buffer[i]);
     }
     
 }
 
+int MyFIFOSize(struct FIFO *fifo){ // rever
+    return fifo->tail - fifo->head;
 
+}
 // retorna o elemento mais antigo 
-int MyFIFOPeep(struct FIFO *fifo){
-		return fifo->buffer[0];
+int MyFIFOPeep(struct FIFO *fifo){ // rever
+		return fifo->buffer[fifo->head];
 }
 
 int main(){
@@ -77,7 +90,9 @@ for (int i = 0; i < MAX_SIZE + 1 ;i++)
             printf("fifo cheio \n");
         }
     }
-
+    MyFIFORemove(&fifo1);
+    MyFIFORemove(&fifo1);
+ 
     PrintFifo(&fifo1);
 
    /*
