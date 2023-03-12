@@ -4,103 +4,109 @@
 #define MAX_SIZE 5 // antes 10
 
 // Estrutura do FIFO
-/*
-typedef struct {
-    int buffer[MAX_SIZE];
-    int head; // posição do primeiro elemento
-    int tail; // posição do próximo elemento a ser inserido
-} FIFO;
-*/
 
 struct FIFO{
     int buffer[MAX_SIZE];
     int head; // posição do primeiro elemento
     int tail; // posição do próximo elemento a ser inserido
+    int cnt;    // numero de elementos no buffer
 };
-
 
 // inicializa o FIFO
 void MyFIFOInit(struct FIFO *fifo){
 		fifo->head=0;
 		fifo->tail=0;
+        fifo->cnt=0;
 }
-
-
 
 int isFifoFull(struct FIFO *fifo){
-     return ((fifo->tail + 1) % MAX_SIZE == fifo->head);
-     
+     return fifo->cnt==MAX_SIZE;
 }
-
 
 int isFifoEmpty(struct FIFO *fifo){
-    return (fifo->tail == fifo->head);
+    return fifo->cnt==0;
 }
 
-
-
-int MyFIFOInsert(struct FIFO *fifo,int value){
-    if(isFifoFull(fifo) == 1){
-        return -1;
+void PrintFifo(struct FIFO *fifo){
+    for (int i = 0; i < MAX_SIZE; i++){
+        printf("%d ",fifo->buffer[i]);
     }
-    fifo->buffer[fifo->tail] = value;
-     fifo->tail = (fifo->tail + 1) % MAX_SIZE;
-
-    return 0;
+    printf("| tail = %d; head = %d\n",fifo->tail,fifo->head);
 }
 
 int MyFIFORemove(struct FIFO *fifo){
     if(isFifoEmpty(fifo) == 1){
+        printf("erro a remover um elemento \n");
+        printf("| tail = %d; head = %d\n",fifo->tail,fifo->head);
         return -1;
     }
-    fifo->buffer[fifo->head] = 0;
-    fifo->head = (fifo->head + 1) % MAX_SIZE;
-
+    fifo->buffer[fifo->head] = -99;
+    fifo->cnt--;
+    fifo->head++;
+    printf("Removido um elemento com sucesso \n");
     return 0;
 }
 
-void PrintFifo(struct FIFO *fifo){
-    for (int i = fifo->head; i < fifo->tail; i++)
-    {
-        printf("%d\n",fifo->buffer[i]);
+int MyFIFOInsert(struct FIFO *fifo,int value){
+    if(isFifoFull(fifo) == 1){
+        printf("fifo cheio %d \n",value);
+        return -1;
     }
-    
+    if (fifo->cnt<5 && fifo->tail==5){
+        fifo->tail=0;
+    }
+    fifo->buffer[fifo->tail] = value;
+    fifo->cnt++;
+
+    fifo->tail= fifo->tail + 1;
+
+    printf("Adicionou o elemento %d com sucesso \n",value);
+    return 0;
 }
 
-int MyFIFOSize(struct FIFO *fifo){ // rever
-    return fifo->tail - fifo->head;
+int fifoSize(struct FIFO *fifo){
+    printf("SIZE=%d\n",fifo->cnt);
+    return fifo->cnt;
 
 }
-// retorna o elemento mais antigo 
-int MyFIFOPeep(struct FIFO *fifo){ // rever
-		return fifo->buffer[fifo->head];
-}
-
 int main(){
 
 struct FIFO fifo1;
 MyFIFOInit(&fifo1);
-for (int i = 0; i < MAX_SIZE + 1 ;i++)
-    {
-        if(MyFIFOInsert(&fifo1,2*i) == 0){
-            printf("Adicionou o elemento com sucesso \n");
-        }
-
-        else{
-            printf("fifo cheio \n");
-        }
+for (int i = 0; i < MAX_SIZE;i++){
+        MyFIFOInsert(&fifo1,2*i);
     }
+
+    PrintFifo(&fifo1);
+    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
+
     MyFIFORemove(&fifo1);
-    MyFIFORemove(&fifo1);
- 
     PrintFifo(&fifo1);
 
-   /*
-    fifo1.buffer[0] = 11;
-    printf("O primeiro elemento e %d",fifo1.buffer[0]);
-    printf("\no head é %d",fifo1.head);
+    fifoSize(&fifo1);
     
-*/
+    MyFIFORemove(&fifo1);
+    PrintFifo(&fifo1);
+    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
+
+    MyFIFOInsert(&fifo1,69);
+    PrintFifo(&fifo1);
+    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
+    
+    MyFIFOInsert(&fifo1,69);
+    PrintFifo(&fifo1);
+    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
+    
+    fifoSize(&fifo1);
+
+    MyFIFOInsert(&fifo1,69);
+    PrintFifo(&fifo1);
+    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
+        
+    MyFIFORemove(&fifo1);
+    PrintFifo(&fifo1);
+    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
+
 return 0;
     
 }
