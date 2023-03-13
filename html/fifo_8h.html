@@ -136,9 +136,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3b8f93389468ecc2db45d4b2bd318126"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fifo_8h.html#a3b8f93389468ecc2db45d4b2bd318126">MyFifoSize</a> (<a class="el" href="structqueue.html">queue</a> *q)</td></tr>
 <tr class="memdesc:a3b8f93389468ecc2db45d4b2bd318126"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o tamanho da fila.  <a href="fifo_8h.html#a3b8f93389468ecc2db45d4b2bd318126">More...</a><br /></td></tr>
 <tr class="separator:a3b8f93389468ecc2db45d4b2bd318126"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66d5263f1359a9012e5825aac55c0fa0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fifo_8h.html#a66d5263f1359a9012e5825aac55c0fa0">MyFifoInsert</a> (<a class="el" href="structqueue.html">queue</a> *q, int value)</td></tr>
-<tr class="memdesc:a66d5263f1359a9012e5825aac55c0fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor na fila.  <a href="fifo_8h.html#a66d5263f1359a9012e5825aac55c0fa0">More...</a><br /></td></tr>
-<tr class="separator:a66d5263f1359a9012e5825aac55c0fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94c6bb40d20aee04326e8c19ec8143d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fifo_8h.html#a94c6bb40d20aee04326e8c19ec8143d4">MyFifoInsert</a> (<a class="el" href="structqueue.html">queue</a> *q, int value, int priority)</td></tr>
+<tr class="memdesc:a94c6bb40d20aee04326e8c19ec8143d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor na fila.  <a href="fifo_8h.html#a94c6bb40d20aee04326e8c19ec8143d4">More...</a><br /></td></tr>
+<tr class="separator:a94c6bb40d20aee04326e8c19ec8143d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6691b012734c3578c90da23da987b12"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fifo_8h.html#ad6691b012734c3578c90da23da987b12">MyFifoRemove</a> (<a class="el" href="structqueue.html">queue</a> *q)</td></tr>
 <tr class="memdesc:ad6691b012734c3578c90da23da987b12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove o valor mais antigo da fila.  <a href="fifo_8h.html#ad6691b012734c3578c90da23da987b12">More...</a><br /></td></tr>
 <tr class="separator:ad6691b012734c3578c90da23da987b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,6 +148,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab91cc6ad481374e390dde800224b54e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fifo_8h.html#ab91cc6ad481374e390dde800224b54e9">MyFifoPeep</a> (<a class="el" href="structqueue.html">queue</a> *q)</td></tr>
 <tr class="memdesc:ab91cc6ad481374e390dde800224b54e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o valor mais antigo da fila sem removê-lo.  <a href="fifo_8h.html#ab91cc6ad481374e390dde800224b54e9">More...</a><br /></td></tr>
 <tr class="separator:ab91cc6ad481374e390dde800224b54e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f658cbb1a6dbbf1aa046e58c90fa40a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fifo_8h.html#a6f658cbb1a6dbbf1aa046e58c90fa40a">MyFifoCheckPriority</a> (<a class="el" href="structqueue.html">queue</a> *q)</td></tr>
+<tr class="memdesc:a6f658cbb1a6dbbf1aa046e58c90fa40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o indice do elemento com maior prioridade.  <a href="fifo_8h.html#a6f658cbb1a6dbbf1aa046e58c90fa40a">More...</a><br /></td></tr>
+<tr class="separator:a6f658cbb1a6dbbf1aa046e58c90fa40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Biblioteca <a class="el" href="fifo_8h.html" title="Biblioteca fifo.h para manipulação de um fifo.">fifo.h</a> para manipulação de um fifo. </p>
@@ -172,6 +175,33 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a6f658cbb1a6dbbf1aa046e58c90fa40a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f658cbb1a6dbbf1aa046e58c90fa40a">&#9670;&nbsp;</a></span>MyFifoCheckPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MyFifoCheckPriority </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structqueue.html">queue</a> *&#160;</td>
+          <td class="paramname"><em>q</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o indice do elemento com maior prioridade. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>Ponteiro para a fila </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>indice do elemento com maior prioridade </dd></dl>
+
+</div>
+</div>
 <a id="aa800a70e1acd609987eabec486a36b66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa800a70e1acd609987eabec486a36b66">&#9670;&nbsp;</a></span>MyFifoInit()</h2>
 
@@ -209,8 +239,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a66d5263f1359a9012e5825aac55c0fa0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66d5263f1359a9012e5825aac55c0fa0">&#9670;&nbsp;</a></span>MyFifoInsert()</h2>
+<a id="a94c6bb40d20aee04326e8c19ec8143d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c6bb40d20aee04326e8c19ec8143d4">&#9670;&nbsp;</a></span>MyFifoInsert()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +255,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>priority</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -240,6 +276,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">q</td><td>Ponteiro para a fila </td></tr>
     <tr><td class="paramname">value</td><td>Valor a ser inserido </td></tr>
+    <tr><td class="paramname">priority</td><td>Indicaçao da prioridade do elemento a adicionar </td></tr>
   </table>
   </dd>
 </dl>

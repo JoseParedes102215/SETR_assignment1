@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['size_31',['size',['../structqueue.html#afb9096840ba43e124b3a58648db557cc',1,'queue']]]
+  ['priority_34',['priority',['../structnode.html#a44e51013eb31fc1f17866ca9fe8ac75b',1,'node']]]
 ];

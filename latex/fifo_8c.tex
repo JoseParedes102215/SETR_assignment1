@@ -20,8 +20,10 @@ void \mbox{\hyperlink{fifo_8c_aa800a70e1acd609987eabec486a36b66}{My\+Fifo\+Init}
 \begin{DoxyCompactList}\small\item\em Inicialização da fila. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{fifo_8c_a3b8f93389468ecc2db45d4b2bd318126}{My\+Fifo\+Size}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
 \begin{DoxyCompactList}\small\item\em Retorna o tamanho da fila. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{fifo_8c_a66d5263f1359a9012e5825aac55c0fa0}{My\+Fifo\+Insert}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q, int value)
+int \mbox{\hyperlink{fifo_8c_a94c6bb40d20aee04326e8c19ec8143d4}{My\+Fifo\+Insert}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q, int value, int priority)
 \begin{DoxyCompactList}\small\item\em Insere um valor na fila. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8c_a6f658cbb1a6dbbf1aa046e58c90fa40a}{My\+Fifo\+Check\+Priority}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Retorna o indice do elemento com maior prioridade. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{fifo_8c_ad6691b012734c3578c90da23da987b12}{My\+Fifo\+Remove}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
 \begin{DoxyCompactList}\small\item\em Remove o valor mais antigo da fila. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{fifo_8c_a9b828b099468df3a05bb4e49be9d2dea}{print\+My\+Fifo}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
@@ -42,6 +44,24 @@ José Paredes Manuel Miranda
 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fifo_8c_a6f658cbb1a6dbbf1aa046e58c90fa40a}\label{fifo_8c_a6f658cbb1a6dbbf1aa046e58c90fa40a}} 
+\index{fifo.c@{fifo.c}!MyFifoCheckPriority@{MyFifoCheckPriority}}
+\index{MyFifoCheckPriority@{MyFifoCheckPriority}!fifo.c@{fifo.c}}
+\doxysubsubsection{\texorpdfstring{MyFifoCheckPriority()}{MyFifoCheckPriority()}}
+{\footnotesize\ttfamily int My\+Fifo\+Check\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Retorna o indice do elemento com maior prioridade. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Ponteiro para a fila \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indice do elemento com maior prioridade 
+\end{DoxyReturn}
 \mbox{\Hypertarget{fifo_8c_aa800a70e1acd609987eabec486a36b66}\label{fifo_8c_aa800a70e1acd609987eabec486a36b66}} 
 \index{fifo.c@{fifo.c}!MyFifoInit@{MyFifoInit}}
 \index{MyFifoInit@{MyFifoInit}!fifo.c@{fifo.c}}
@@ -59,11 +79,11 @@ Inicialização da fila.
 {\em maxsize} & Tamanho máximo do fifo \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{fifo_8c_a66d5263f1359a9012e5825aac55c0fa0}\label{fifo_8c_a66d5263f1359a9012e5825aac55c0fa0}} 
+\mbox{\Hypertarget{fifo_8c_a94c6bb40d20aee04326e8c19ec8143d4}\label{fifo_8c_a94c6bb40d20aee04326e8c19ec8143d4}} 
 \index{fifo.c@{fifo.c}!MyFifoInsert@{MyFifoInsert}}
 \index{MyFifoInsert@{MyFifoInsert}!fifo.c@{fifo.c}}
 \doxysubsubsection{\texorpdfstring{MyFifoInsert()}{MyFifoInsert()}}
-{\footnotesize\ttfamily int My\+Fifo\+Insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q,  }\item[{int}]{value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily int My\+Fifo\+Insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q,  }\item[{int}]{value,  }\item[{int}]{priority }\end{DoxyParamCaption})}
 
 
 
@@ -74,6 +94,8 @@ Insere um valor na fila.
 {\em q} & Ponteiro para a fila \\
 \hline
 {\em value} & Valor a ser inserido \\
+\hline
+{\em priority} & Indicaçao da prioridade do elemento a adicionar \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

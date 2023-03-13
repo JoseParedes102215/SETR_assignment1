@@ -4,7 +4,7 @@ var indexSectionsWithContent =
   1: "nq",
   2: "fm",
   3: "mp",
-  4: "hnstv",
+  4: "hnpstv",
   5: "n"
 };
 

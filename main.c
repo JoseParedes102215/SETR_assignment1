@@ -29,7 +29,7 @@ int main(){
             break;
         printf("\nMenu FIFO - Escolha uma das seguintes opçoes \n"
         "0 -> Adicionar novo inteiro\n"
-        "1 -> Remover o primeiro elemento que foi colocado\n"
+        "1 -> Remover o elemento com maior prioridade\n"
         "2 -> Retorna o elemento mais antigo do fifo e nao o elimina\n"
         "3 -> Retorna o numero de elementos do fifo\n"
         "4 -> Printa todos os elementos do fifo \n"

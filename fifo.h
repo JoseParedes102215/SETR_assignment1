@@ -64,6 +64,7 @@ int MyFifoSize(queue *q);
 @brief Insere um valor na fila
 @param q Ponteiro para a fila
 @param value Valor a ser inserido
+@param priority Indicaçao da prioridade do elemento a adicionar
 @return 1 em caso de sucesso, QUEUE_FULL se a fila estiver cheia, MALLOC_FAILED se houver falha na alocação de memória
 */
 int MyFifoInsert(queue *q, int value,int priority);
@@ -71,8 +72,6 @@ int MyFifoInsert(queue *q, int value,int priority);
 
 @brief Remove o valor mais antigo da fila
 @param q Ponteiro para a fila
-@param value valor inteiro a adiocionar a fila
-@param priority Indicação da prioridade do elemento a adicionar
 @return Valor removido em caso de sucesso, QUEUE_EMPTY se a fila estiver vazia
 */
 int MyFifoRemove(queue *q);
@@ -89,4 +88,11 @@ void printMyFifo(queue *q);
 @return Valor mais antigo em caso de sucesso, QUEUE_EMPTY se a fila estiver vazia
 */
 int MyFifoPeep(queue *q);
+
+/**
+@brief Retorna o indice do elemento com maior prioridade
+@param q Ponteiro para a fila
+@return indice do elemento com maior prioridade
+*/
+int MyFifoCheckPriority(queue *q);
 #endif // FIFO_H
