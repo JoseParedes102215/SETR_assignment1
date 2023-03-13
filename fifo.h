@@ -30,6 +30,7 @@
 */
 typedef struct node{
 int value; /**< Valor inteiro armazenado no nodo */
+int priority; /**< Valor da prioridade do elemento */
 struct node *next; /**< Ponteiro para o próximo nodo */
 } node;
 
@@ -41,6 +42,7 @@ typedef struct{
 node *head; /**< Ponteiro para o primeiro nodo da fila */
 node *tail; /**< Ponteiro para o último nodo */
 int size; /**< Tamanho atual do fifo */
+
 } queue;
 
 /**
@@ -64,7 +66,7 @@ int MyFifoSize(queue *q);
 @param value Valor a ser inserido
 @return 1 em caso de sucesso, QUEUE_FULL se a fila estiver cheia, MALLOC_FAILED se houver falha na alocação de memória
 */
-int MyFifoInsert(queue *q, int value);
+int MyFifoInsert(queue *q, int value,int priority);
 /**
 
 @brief Remove o valor mais antigo da fila

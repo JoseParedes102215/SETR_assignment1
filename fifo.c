@@ -23,8 +23,7 @@ int MyFifoSize(queue *q){
     return q->size;
 }
 
-int MyFifoInsert(queue *q, int value){
-
+int MyFifoInsert(queue *q, int value,int priority){
     //cria um novo nodo
     node * newnode =  malloc(sizeof(node));
     if (newnode == NULL) {
@@ -38,6 +37,7 @@ int MyFifoInsert(queue *q, int value){
         }
         q->size += 1;
         newnode->value = value;
+        newnode->priority = priority;
         newnode->next = NULL;
         // Se já existir um tail , conectar essa tail à nova
         if(q->tail != NULL){
@@ -53,39 +53,89 @@ int MyFifoInsert(queue *q, int value){
     
 }
 
+int MyFifoCheckPriority(queue *q){
+    int max_prior = -1;
+    node *tmp_curr = q->head;
+    int idx = -1;
+    for (int i = 0; i < q->size; i++)
+    {
+        if(tmp_curr->priority > max_prior){
+            max_prior = tmp_curr->priority;
+            idx = i; 
+        }
+        tmp_curr = tmp_curr->next;
+    }
+    return idx;
+}
 
 int MyFifoRemove(queue *q){
     // Verificar se o fifo está vazio
+    
     if(q->head == NULL) {
         fprintf(stderr, "O Fifo está vazio\n");
         return -2; /** fifo vazio*/
     }
-    node *tmp = q->head;
-    //Retira o elemento do fifo
-    q->head = q->head->next;
-    if (q->head == NULL){
-        q->tail = NULL;
+    node *tmp_curr = q->head;
+    node *tmp = NULL;
+    
+    int idx = MyFifoCheckPriority(q);
+    
+    if (idx == 0) {
+        q->head = q->head->next;
+        if (q->head == NULL) {
+            q->tail = NULL;
+        }
+        q->size = q->size - 1;
+        free(tmp_curr);
+    } else {
+        for (int i = 0; i < idx; i++)
+        {
+            tmp = tmp_curr;
+            tmp_curr = tmp_curr->next;
+        }
+        tmp->next = tmp_curr->next;
+        q->size = q->size - 1;
+        if (tmp_curr == q->tail) {
+            q->tail = tmp;
+        }
+        free(tmp_curr);
     }
-    q->size = q->size - 1;
-    free(tmp);
+    
     return 1;
 }
 
 
+
 void printMyFifo(queue *q){
     node *tmp2 = q->head;
-    for (int i = 0; i < q->size; i++)
-    {
-        
-        printf("%d\n",tmp2->value);
-        tmp2 = tmp2->next;
+    if(tmp2 == NULL){
+        printf("O fifo esta vazio \n");
+    }
+    else{
 
+        for (int i = 0; i < q->size; i++)
+        {
+            
+            printf("%d -prioridade = %d\n",tmp2->value,tmp2->priority);
+            tmp2 = tmp2->next;
+
+        }
     }
  
 }
 
 int MyFifoPeep(queue *q){
-    return q->head->value; //retorna o elemento mais antigo
+    if(MyFifoSize(q) == 0){
+        printf("Nao ha elementos no fifo ainda \n");
+        return -1;
+    }
+    else if(MyFifoSize(q) > 0){
+        return q->head->value; //retorna o elemento mais antigo
+
+    }
+    else{
+        return -1;
+    }
 }
 
 

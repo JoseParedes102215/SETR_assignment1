@@ -22,7 +22,7 @@
 
 int main(){
     queue q1;
-    int tecla,num,out = 0;
+    int tecla,num,pr,out = 0;
     MyFifoInit(&q1,QUEUE_MAX_SIZE);
     while(1){
         if(out == 1)
@@ -48,16 +48,24 @@ int main(){
             printf("Entrada inválida. Digite um número inteiro.\n");
             while (getchar() != '\n'); //limpa o buffer de entrada
             }
+            printf("Digite um número inteiro para a prioridade do elemento do fifo: ");
+            while (scanf("%d", &pr) != 1) {
+            printf("Entrada inválida. Digite um número inteiro.\n");
+            while (getchar() != '\n'); //limpa o buffer de entrada
+            }
         
 
-            MyFifoInsert(&q1,num);
+            MyFifoInsert(&q1,num,pr);
             break;
         case 1:
-            printf("O elemento mais antigo foi eliminado\n");
+            printf("O elemento mais prioritario foi eliminado\n");
             MyFifoRemove(&q1);
             break;
         case 2:
-            printf("O elemento mais antigo e: %d\n",MyFifoPeep(&q1));
+            if(MyFifoPeep(&q1) == -1);
+            else{
+                printf("O elemento mais antigo e: %d\n",MyFifoPeep(&q1));
+                }
             break;
         case 3:
             printf("tamanho do fifo: %d\n",MyFifoSize(&q1));
