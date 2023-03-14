@@ -1,16 +1,15 @@
-#include <stdio.h>
+/**
+@file fifo.c
+@brief Ficheiro fifo.c para as definições das funções
+ @author José Paredes Manuel Miranda
+ @date 12 March 2023
+*/
+
 #include <stdlib.h>
+#include "fifo.h"
 
-#define MAX_SIZE 5 // antes 10
+#include <stdio.h>
 
-// Estrutura do FIFO
-
-struct FIFO{
-    int buffer[MAX_SIZE];
-    int head; // posição do primeiro elemento
-    int tail; // posição do próximo elemento a ser inserido
-    int cnt;    // numero de elementos no buffer
-};
 
 // inicializa o FIFO
 void MyFIFOInit(struct FIFO *fifo){
@@ -31,20 +30,21 @@ void PrintFifo(struct FIFO *fifo){
     for (int i = 0; i < MAX_SIZE; i++){
         printf("%d ",fifo->buffer[i]);
     }
-    printf("| tail = %d; head = %d\n",fifo->tail,fifo->head);
+    //printf("| tail = %d; head = %d\n",fifo->tail,fifo->head); efeitos de teste
 }
 
 int MyFIFORemove(struct FIFO *fifo){
     if(isFifoEmpty(fifo) == 1){
-        printf("erro a remover um elemento \n");
-        printf("| tail = %d; head = %d\n",fifo->tail,fifo->head);
+        printf("Erro a remover um elemento \n");
+        //printf("| tail = %d; head = %d\n",fifo->tail,fifo->head); efeitos de teste
         return -1;
     }
+    int value =fifo->buffer[fifo->head];
     fifo->buffer[fifo->head] = -99;
     fifo->cnt--;
     fifo->head++;
     printf("Removido um elemento com sucesso \n");
-    return 0;
+    return value;
 }
 
 int MyFIFOInsert(struct FIFO *fifo,int value){
@@ -67,46 +67,4 @@ int MyFIFOInsert(struct FIFO *fifo,int value){
 int fifoSize(struct FIFO *fifo){
     printf("SIZE=%d\n",fifo->cnt);
     return fifo->cnt;
-
-}
-int main(){
-
-struct FIFO fifo1;
-MyFIFOInit(&fifo1);
-for (int i = 0; i < MAX_SIZE;i++){
-        MyFIFOInsert(&fifo1,2*i);
-    }
-
-    PrintFifo(&fifo1);
-    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
-
-    MyFIFORemove(&fifo1);
-    PrintFifo(&fifo1);
-
-    fifoSize(&fifo1);
-    
-    MyFIFORemove(&fifo1);
-    PrintFifo(&fifo1);
-    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
-
-    MyFIFOInsert(&fifo1,69);
-    PrintFifo(&fifo1);
-    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
-    
-    MyFIFOInsert(&fifo1,69);
-    PrintFifo(&fifo1);
-    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
-    
-    fifoSize(&fifo1);
-
-    MyFIFOInsert(&fifo1,69);
-    PrintFifo(&fifo1);
-    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
-        
-    MyFIFORemove(&fifo1);
-    PrintFifo(&fifo1);
-    printf("fifo full ? R: %d\n",isFifoFull(&fifo1));
-
-return 0;
-    
 }

@@ -1,0 +1,194 @@
+\hypertarget{fifo_8h}{}\doxysection{fifo.\+h File Reference}
+\label{fifo_8h}\index{fifo.h@{fifo.h}}
+
+
+Biblioteca \mbox{\hyperlink{fifo_8h}{fifo.\+h}} para manipulação de um fifo.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for fifo.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{fifo_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{fifo_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}}
+\begin{DoxyCompactList}\small\item\em estrutura do fifo \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fifo_8h_a0592dba56693fad79136250c11e5a7fe}{M\+A\+X\+\_\+\+S\+I\+ZE}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fifo_8h_a8089b187d2ffd848c92cbe83c904a7f2}{My\+F\+I\+F\+O\+Init}} (struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$fifo)
+\begin{DoxyCompactList}\small\item\em Inicialização da fila. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_acbf64286ef2933c516c6cba02baaef9b}{is\+Fifo\+Full}} (struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$fifo)
+\begin{DoxyCompactList}\small\item\em Verifica se o fifo está cheio. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_a5c4f2c792d8c7d11be5abfd012abdc6b}{is\+Fifo\+Empty}} (struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$fifo)
+\begin{DoxyCompactList}\small\item\em Verifica se o fifo está vazio. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fifo_8h_a842c8c589063151b881efefb1f7c3ac6}{Print\+Fifo}} (struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$fifo)
+\begin{DoxyCompactList}\small\item\em Imprime o conteúdo do fifo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_a08af4087f87f683e05687e786260ec1a}{My\+F\+I\+F\+O\+Remove}} (struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$fifo)
+\begin{DoxyCompactList}\small\item\em Remove o valor mais antigo da fila. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_acc3e3e1473ae5b46638277b2ae20a868}{My\+F\+I\+F\+O\+Insert}} (struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$fifo, int value)
+\begin{DoxyCompactList}\small\item\em Insere um valor na fila. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_abf7dd1bec2a9fa78d804bc66cb12644b}{fifo\+Size}} (struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$fifo)
+\begin{DoxyCompactList}\small\item\em Retorna o numero de elementos a serem removidos do fifo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Biblioteca \mbox{\hyperlink{fifo_8h}{fifo.\+h}} para manipulação de um fifo. 
+
+\begin{DoxyAuthor}{Author}
+José Paredes Manuel Miranda 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+13 March 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fifo_8h_a0592dba56693fad79136250c11e5a7fe}\label{fifo_8h_a0592dba56693fad79136250c11e5a7fe}} 
+\index{fifo.h@{fifo.h}!MAX\_SIZE@{MAX\_SIZE}}
+\index{MAX\_SIZE@{MAX\_SIZE}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_SIZE}{MAX\_SIZE}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+S\+I\+ZE~5}
+
+Tamanho do fifo 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fifo_8h_abf7dd1bec2a9fa78d804bc66cb12644b}\label{fifo_8h_abf7dd1bec2a9fa78d804bc66cb12644b}} 
+\index{fifo.h@{fifo.h}!fifoSize@{fifoSize}}
+\index{fifoSize@{fifoSize}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{fifoSize()}{fifoSize()}}
+{\footnotesize\ttfamily int fifo\+Size (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$}]{fifo }\end{DoxyParamCaption})}
+
+
+
+Retorna o numero de elementos a serem removidos do fifo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fifo} & Ponteiro para o fifo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Numero de elementos a serem removidos do fifo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_a5c4f2c792d8c7d11be5abfd012abdc6b}\label{fifo_8h_a5c4f2c792d8c7d11be5abfd012abdc6b}} 
+\index{fifo.h@{fifo.h}!isFifoEmpty@{isFifoEmpty}}
+\index{isFifoEmpty@{isFifoEmpty}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{isFifoEmpty()}{isFifoEmpty()}}
+{\footnotesize\ttfamily int is\+Fifo\+Empty (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$}]{fifo }\end{DoxyParamCaption})}
+
+
+
+Verifica se o fifo está vazio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fifo} & Ponteiro para o fifo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 se o fifo estiver vazio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_acbf64286ef2933c516c6cba02baaef9b}\label{fifo_8h_acbf64286ef2933c516c6cba02baaef9b}} 
+\index{fifo.h@{fifo.h}!isFifoFull@{isFifoFull}}
+\index{isFifoFull@{isFifoFull}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{isFifoFull()}{isFifoFull()}}
+{\footnotesize\ttfamily int is\+Fifo\+Full (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$}]{fifo }\end{DoxyParamCaption})}
+
+
+
+Verifica se o fifo está cheio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fifo} & Ponteiro para o fifo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 se o fifo estiver cheio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_a8089b187d2ffd848c92cbe83c904a7f2}\label{fifo_8h_a8089b187d2ffd848c92cbe83c904a7f2}} 
+\index{fifo.h@{fifo.h}!MyFIFOInit@{MyFIFOInit}}
+\index{MyFIFOInit@{MyFIFOInit}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFIFOInit()}{MyFIFOInit()}}
+{\footnotesize\ttfamily void My\+F\+I\+F\+O\+Init (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$}]{fifo }\end{DoxyParamCaption})}
+
+
+
+Inicialização da fila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fifo} & ponteiro para fifo a ser inicializado \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fifo_8h_acc3e3e1473ae5b46638277b2ae20a868}\label{fifo_8h_acc3e3e1473ae5b46638277b2ae20a868}} 
+\index{fifo.h@{fifo.h}!MyFIFOInsert@{MyFIFOInsert}}
+\index{MyFIFOInsert@{MyFIFOInsert}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFIFOInsert()}{MyFIFOInsert()}}
+{\footnotesize\ttfamily int My\+F\+I\+F\+O\+Insert (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$}]{fifo,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Insere um valor na fila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fifo} & Ponteiro para o fifo \\
+\hline
+{\em value} & Inteiro a ser inserido no fifo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 em caso de sucesso, -\/1 se o fifo estiver vazio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_a08af4087f87f683e05687e786260ec1a}\label{fifo_8h_a08af4087f87f683e05687e786260ec1a}} 
+\index{fifo.h@{fifo.h}!MyFIFORemove@{MyFIFORemove}}
+\index{MyFIFORemove@{MyFIFORemove}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFIFORemove()}{MyFIFORemove()}}
+{\footnotesize\ttfamily int My\+F\+I\+F\+O\+Remove (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$}]{fifo }\end{DoxyParamCaption})}
+
+
+
+Remove o valor mais antigo da fila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fifo} & Ponteiro para o fifo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor removido em caso de sucesso, -\/1 se o fifo estiver vazio 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_a842c8c589063151b881efefb1f7c3ac6}\label{fifo_8h_a842c8c589063151b881efefb1f7c3ac6}} 
+\index{fifo.h@{fifo.h}!PrintFifo@{PrintFifo}}
+\index{PrintFifo@{PrintFifo}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{PrintFifo()}{PrintFifo()}}
+{\footnotesize\ttfamily void Print\+Fifo (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structFIFO}{F\+I\+FO}} $\ast$}]{fifo }\end{DoxyParamCaption})}
+
+
+
+Imprime o conteúdo do fifo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fifo} & Ponteiro para o fifo \\
+\hline
+\end{DoxyParams}
