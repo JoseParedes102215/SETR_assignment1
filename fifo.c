@@ -49,7 +49,7 @@ int MyFifoInsert(queue *q, int value,int priority){
         if (q->head == NULL){
             q->head = newnode;
         }
-        return 1;
+        return 0;
     }
     
 }
@@ -73,7 +73,7 @@ int MyFifoRemove(queue *q){
     // Verificar se o fifo está vazio
     
     if(q->head == NULL) {
-        return QUEUE_EMPTY; /** fifo vazio*/
+        return QUEUE_EMPTY; // fifo vazio*
     }
     node *tmp_curr = q->head;
     node *tmp = NULL;
