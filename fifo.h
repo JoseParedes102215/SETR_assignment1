@@ -72,7 +72,7 @@ int MyFifoInsert(queue *q, int value,int priority);
 
 @brief Remove o valor mais antigo da fila
 @param q Ponteiro para a fila
-@return Valor removido em caso de sucesso, QUEUE_EMPTY se a fila estiver vazia
+@return 0 em caso de sucesso, QUEUE_EMPTY se a fila estiver vazia
 */
 int MyFifoRemove(queue *q);
 /**

@@ -73,8 +73,7 @@ int MyFifoRemove(queue *q){
     // Verificar se o fifo está vazio
     
     if(q->head == NULL) {
-        fprintf(stderr, "O Fifo está vazio\n");
-        return -2; /** fifo vazio*/
+        return QUEUE_EMPTY; /** fifo vazio*/
     }
     node *tmp_curr = q->head;
     node *tmp = NULL;
@@ -101,8 +100,7 @@ int MyFifoRemove(queue *q){
         }
         free(tmp_curr);
     }
-    
-    return 1;
+    return 0;
 }
 
 

@@ -39,7 +39,7 @@ int main(){
             while (getchar() != '\n'); //limpa o buffer de entrada 
             }
         
-            
+        int ret;
         switch (tecla)
         {
         case 0:
@@ -58,8 +58,13 @@ int main(){
             MyFifoInsert(&q1,num,pr);
             break;
         case 1:
-            printf("O elemento mais prioritario foi eliminado\n");
-            MyFifoRemove(&q1);
+            ret = MyFifoRemove(&q1);
+            if (ret==0){
+                printf("O elemento mais prioritario foi eliminado\n");
+            }
+            else{
+                fprintf(stderr, "O Fifo está vazio\n");
+            }
             break;
         case 2:
             if(MyFifoPeep(&q1) == -1);
