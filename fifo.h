@@ -65,7 +65,7 @@ int MyFifoSize(queue *q);
 @param q Ponteiro para a fila
 @param value Valor a ser inserido
 @param priority Indicaçao da prioridade do elemento a adicionar
-@return 1 em caso de sucesso, QUEUE_FULL se a fila estiver cheia, MALLOC_FAILED se houver falha na alocação de memória
+@return 0 em caso de sucesso, QUEUE_FULL se a fila estiver cheia, MALLOC_FAILED se houver falha na alocação de memória
 */
 int MyFifoInsert(queue *q, int value,int priority);
 /**

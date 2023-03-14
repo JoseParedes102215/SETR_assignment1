@@ -67,7 +67,9 @@ int main(){
             }
             break;
         case 2:
-            if(MyFifoPeep(&q1) == -1);
+            if(MyFifoPeep(&q1) == QUEUE_EMPTY){
+                printf("Nao ha elementos no fifo\n");
+            }
             else{
                 printf("O elemento mais antigo e: %d\n",MyFifoPeep(&q1));
                 }

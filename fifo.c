@@ -28,13 +28,13 @@ int MyFifoInsert(queue *q, int value,int priority){
     node * newnode =  malloc(sizeof(node));
     if (newnode == NULL) {
         fprintf(stderr, "O malloc falhou\n");
-        return -3; //malloc falhou
+        return MALLOC_FAILED; //malloc falhou
     }
 
     else{
         if(q->size == QUEUE_MAX_SIZE){
             fprintf(stderr, "O Fifo está cheio\n");
-            return -1;
+            return QUEUE_FULL;
         }
         q->size += 1;
         newnode->value = value;
@@ -80,6 +80,8 @@ int MyFifoRemove(queue *q){
     
     int idx = MyFifoCheckPriority(q);
     
+    /* condição de o elemento de maior
+    prioridade ser o primeiro */
     if (idx == 0) {
         q->head = q->head->next;
         if (q->head == NULL) {
@@ -95,6 +97,9 @@ int MyFifoRemove(queue *q){
         }
         tmp->next = tmp_curr->next;
         q->size = q->size - 1;
+
+        /* condição de o elemento de maior
+        prioridade ser o ultimo */ 
         if (tmp_curr == q->tail) {
             q->tail = tmp;
         }
@@ -113,7 +118,6 @@ void printMyFifo(queue *q){
 
         for (int i = 0; i < q->size; i++)
         {
-            
             printf("%d -prioridade = %d\n",tmp2->value,tmp2->priority);
             tmp2 = tmp2->next;
 
@@ -123,14 +127,10 @@ void printMyFifo(queue *q){
 
 int MyFifoPeep(queue *q){
     if(MyFifoSize(q) == 0){
-        printf("Nao ha elementos no fifo ainda \n");
-        return -1;
+        return QUEUE_EMPTY;
     }
-    else if(MyFifoSize(q) > 0){
+    else {
         return q->head->value; //retorna o elemento mais antigo
-    }
-    else{
-        return -1;
     }
 }
 
