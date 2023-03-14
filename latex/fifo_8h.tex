@@ -1,0 +1,220 @@
+\hypertarget{fifo_8h}{}\doxysection{fifo.\+h File Reference}
+\label{fifo_8h}\index{fifo.h@{fifo.h}}
+
+
+Biblioteca \mbox{\hyperlink{fifo_8h}{fifo.\+h}} para manipulação de um fifo.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for fifo.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{fifo_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{fifo_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structnode}{node}}
+\begin{DoxyCompactList}\small\item\em Nodo do fifo. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structqueue}{queue}}
+\begin{DoxyCompactList}\small\item\em Fila. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{fifo_8h_ad562f7d4c0e38abf49244bef3ee88919}\label{fifo_8h_ad562f7d4c0e38abf49244bef3ee88919}} 
+\#define {\bfseries M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+ED}~-\/3
+\item 
+\mbox{\Hypertarget{fifo_8h_a8b928421e9bb547953b629579d455bca}\label{fifo_8h_a8b928421e9bb547953b629579d455bca}} 
+\#define {\bfseries Q\+U\+E\+U\+E\+\_\+\+E\+M\+P\+TY}~-\/2
+\item 
+\mbox{\Hypertarget{fifo_8h_ae5392de5b985b628df64c82c801f0d68}\label{fifo_8h_ae5392de5b985b628df64c82c801f0d68}} 
+\#define {\bfseries Q\+U\+E\+U\+E\+\_\+\+F\+U\+LL}~-\/1
+\item 
+\mbox{\Hypertarget{fifo_8h_a4b56a6f23e044affca38eed1834e98dc}\label{fifo_8h_a4b56a6f23e044affca38eed1834e98dc}} 
+\#define {\bfseries Q\+U\+E\+U\+E\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structnode}{node}} \mbox{\hyperlink{fifo_8h_af4aeda155dbe167f1c1cf38cb65bf324}{node}}
+\begin{DoxyCompactList}\small\item\em Nodo do fifo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fifo_8h_aa800a70e1acd609987eabec486a36b66}{My\+Fifo\+Init}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q, int maxsize)
+\begin{DoxyCompactList}\small\item\em Inicialização da fila. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_a3b8f93389468ecc2db45d4b2bd318126}{My\+Fifo\+Size}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Retorna o tamanho da fila. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_a94c6bb40d20aee04326e8c19ec8143d4}{My\+Fifo\+Insert}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q, int value, int priority)
+\begin{DoxyCompactList}\small\item\em Insere um valor na fila. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_ad6691b012734c3578c90da23da987b12}{My\+Fifo\+Remove}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Remove o valor mais antigo da fila. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fifo_8h_a9b828b099468df3a05bb4e49be9d2dea}{print\+My\+Fifo}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Imprime todos os valores da fila. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_ab91cc6ad481374e390dde800224b54e9}{My\+Fifo\+Peep}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Retorna o valor mais antigo da fila sem removê-\/lo. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{fifo_8h_a6f658cbb1a6dbbf1aa046e58c90fa40a}{My\+Fifo\+Check\+Priority}} (\mbox{\hyperlink{structqueue}{queue}} $\ast$q)
+\begin{DoxyCompactList}\small\item\em Retorna o indice do elemento com maior prioridade. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Biblioteca \mbox{\hyperlink{fifo_8h}{fifo.\+h}} para manipulação de um fifo. 
+
+\begin{DoxyAuthor}{Author}
+José Paredes Manuel Miranda 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12 March 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{fifo_8h_af4aeda155dbe167f1c1cf38cb65bf324}\label{fifo_8h_af4aeda155dbe167f1c1cf38cb65bf324}} 
+\index{fifo.h@{fifo.h}!node@{node}}
+\index{node@{node}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{node}{node}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structnode}{node}} \mbox{\hyperlink{structnode}{node}}}
+
+
+
+Nodo do fifo. 
+
+O Nodo representa a informação de um elemento do fifo 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fifo_8h_a6f658cbb1a6dbbf1aa046e58c90fa40a}\label{fifo_8h_a6f658cbb1a6dbbf1aa046e58c90fa40a}} 
+\index{fifo.h@{fifo.h}!MyFifoCheckPriority@{MyFifoCheckPriority}}
+\index{MyFifoCheckPriority@{MyFifoCheckPriority}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFifoCheckPriority()}{MyFifoCheckPriority()}}
+{\footnotesize\ttfamily int My\+Fifo\+Check\+Priority (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Retorna o indice do elemento com maior prioridade. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Ponteiro para a fila \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indice do elemento com maior prioridade 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_aa800a70e1acd609987eabec486a36b66}\label{fifo_8h_aa800a70e1acd609987eabec486a36b66}} 
+\index{fifo.h@{fifo.h}!MyFifoInit@{MyFifoInit}}
+\index{MyFifoInit@{MyFifoInit}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFifoInit()}{MyFifoInit()}}
+{\footnotesize\ttfamily void My\+Fifo\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q,  }\item[{int}]{maxsize }\end{DoxyParamCaption})}
+
+
+
+Inicialização da fila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Ponteiro para a fila \\
+\hline
+{\em maxsize} & Tamanho máximo do fifo \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fifo_8h_a94c6bb40d20aee04326e8c19ec8143d4}\label{fifo_8h_a94c6bb40d20aee04326e8c19ec8143d4}} 
+\index{fifo.h@{fifo.h}!MyFifoInsert@{MyFifoInsert}}
+\index{MyFifoInsert@{MyFifoInsert}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFifoInsert()}{MyFifoInsert()}}
+{\footnotesize\ttfamily int My\+Fifo\+Insert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q,  }\item[{int}]{value,  }\item[{int}]{priority }\end{DoxyParamCaption})}
+
+
+
+Insere um valor na fila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Ponteiro para a fila \\
+\hline
+{\em value} & Valor a ser inserido \\
+\hline
+{\em priority} & Indicaçao da prioridade do elemento a adicionar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 em caso de sucesso, Q\+U\+E\+U\+E\+\_\+\+F\+U\+LL se a fila estiver cheia, M\+A\+L\+L\+O\+C\+\_\+\+F\+A\+I\+L\+ED se houver falha na alocação de memória 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_ab91cc6ad481374e390dde800224b54e9}\label{fifo_8h_ab91cc6ad481374e390dde800224b54e9}} 
+\index{fifo.h@{fifo.h}!MyFifoPeep@{MyFifoPeep}}
+\index{MyFifoPeep@{MyFifoPeep}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFifoPeep()}{MyFifoPeep()}}
+{\footnotesize\ttfamily int My\+Fifo\+Peep (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Retorna o valor mais antigo da fila sem removê-\/lo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Ponteiro para a fila \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor mais antigo em caso de sucesso, Q\+U\+E\+U\+E\+\_\+\+E\+M\+P\+TY se a fila estiver vazia 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_ad6691b012734c3578c90da23da987b12}\label{fifo_8h_ad6691b012734c3578c90da23da987b12}} 
+\index{fifo.h@{fifo.h}!MyFifoRemove@{MyFifoRemove}}
+\index{MyFifoRemove@{MyFifoRemove}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFifoRemove()}{MyFifoRemove()}}
+{\footnotesize\ttfamily int My\+Fifo\+Remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Remove o valor mais antigo da fila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Ponteiro para a fila \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor removido em caso de sucesso, Q\+U\+E\+U\+E\+\_\+\+E\+M\+P\+TY se a fila estiver vazia 
+\end{DoxyReturn}
+fifo vazio\mbox{\Hypertarget{fifo_8h_a3b8f93389468ecc2db45d4b2bd318126}\label{fifo_8h_a3b8f93389468ecc2db45d4b2bd318126}} 
+\index{fifo.h@{fifo.h}!MyFifoSize@{MyFifoSize}}
+\index{MyFifoSize@{MyFifoSize}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{MyFifoSize()}{MyFifoSize()}}
+{\footnotesize\ttfamily int My\+Fifo\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Retorna o tamanho da fila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Ponteiro para a fila \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tamanho atual da fila 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fifo_8h_a9b828b099468df3a05bb4e49be9d2dea}\label{fifo_8h_a9b828b099468df3a05bb4e49be9d2dea}} 
+\index{fifo.h@{fifo.h}!printMyFifo@{printMyFifo}}
+\index{printMyFifo@{printMyFifo}!fifo.h@{fifo.h}}
+\doxysubsubsection{\texorpdfstring{printMyFifo()}{printMyFifo()}}
+{\footnotesize\ttfamily void print\+My\+Fifo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structqueue}{queue}} $\ast$}]{q }\end{DoxyParamCaption})}
+
+
+
+Imprime todos os valores da fila. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Ponteiro para a fila \\
+\hline
+\end{DoxyParams}
